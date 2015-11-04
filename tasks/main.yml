@@ -1,0 +1,53 @@
+---
+# tasks file for compact-box
+- name: Check which locales are installed
+  shell: ls -1 /usr/share/locale/
+  register: locales
+
+- name: Remove unneeded locales
+  file: path=/usr/share/locale/{{ item }} state=absent
+  with_items: locales.stdout_lines
+  when: item not in "{{ keep_locales|default(['en_US']) }}"
+
+- name: Check which i18n locales are installed
+  shell: ls -1 /usr/share/i18n/locales/
+  register: locales
+
+- name: Remove unneeded i18n locales
+  file: path=/usr/share/i18n/locales/{{ item }} state=absent
+  with_items: locales.stdout_lines
+  when: item not in "{{ keep_locales|default(['en_US']) }}"
+
+# - name: Check which localized manuals are installed
+#   shell: ls -1 /usr/share/man/
+#   register: locales
+#   tags:
+#    - compact
+
+# - name: Remove localized manuals
+#   file: path=/usr/share/man/{{ item }} state=absent
+#   with_items: locales.stdout_lines
+#   when: item not in "{{ keep_locales }}"
+#   tags:
+#    - compact
+
+- name: Copy compact_box script to host
+  copy:
+    src=compact_box.sh
+    dest=/usr/bin/compact_box.sh
+    owner=root
+    group=root
+    mode=0744
+
+- name: Remove unnecessary packages to save space
+  apt:
+    name={{ item }}
+    force=yes
+    purge=yes
+    state=absent
+  with_items: "{{ unnecessary_packages|default([])  }}"
+
+- name: Autoremove unused packages
+  command: apt-get -y autoremove
+  register: apt_get
+  changed_when: apt_get.stdout != "Reading package lists...\nBuilding dependency tree...\nReading state information...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."

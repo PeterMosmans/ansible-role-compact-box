@@ -1,0 +1,12 @@
+---
+# defaults file for compact-box
+keep_locales:
+  - en_US
+unnecessary_packages:
+  - build-essential
+  - bzip2
+  - dkms
+  - dpkg-dev
+  - gcc
+  - make
+  - task-laptop

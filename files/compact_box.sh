@@ -14,6 +14,8 @@
 #
 #    You should have received a copy of the GNU General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# usage: history -c; sudo compact_box.sh
 unset HISTFILE
 USERLIST='/root /home/*'
 USERFILELIST='.bash_history .zsh_history .zcompdump-*'
@@ -31,4 +33,4 @@ logrotate --force /etc/logrotate.conf
 find /var/log/ -name '*[0-5]*' -exec rm {} \; 2>/dev/null
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
-history -c && shutdown -h now
+history -c; shutdown -h now

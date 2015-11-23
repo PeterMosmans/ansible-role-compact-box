@@ -23,7 +23,7 @@
   when: item not in "{{ keep_locales|default(['en_US']) }}"
 
 - name: Check which i18n locales are installed
-  shell: ls -1 /usr/share/i18n/locales/
+  shell: ls -1 /usr/share/i18n/locales/ | grep -v "locale.alias\|translit_"
   register: locales
 
 - name: Remove unneeded i18n locales

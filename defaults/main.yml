@@ -2,12 +2,24 @@
 # defaults file for compact-box
 keep_locales:
   - en_US
-  - locale.alias
 unnecessary_packages:
+  - bluez
   - build-essential
   - bzip2
+  - cpp-4.9
+  - crda
+  - cups
   - dkms
   - dpkg-dev
   - gcc
+  - iso-codes
+  - iw
+  - libiw30
+  - locales
   - make
+  - manpages
+  - task-english
   - task-laptop
+  - wireless-regdb
+  - wireless-tools
+  - wpasupplicant

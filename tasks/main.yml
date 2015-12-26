@@ -25,6 +25,7 @@
 - name: Check which i18n locales are installed
   shell: ls -1 /usr/share/i18n/locales/ | grep -v "locale.alias\|translit_"
   register: locales
+  ignore_errors: yes
 
 - name: Remove unneeded i18n locales
   file: path=/usr/share/i18n/locales/{{ item }} state=absent

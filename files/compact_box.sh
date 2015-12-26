@@ -20,15 +20,16 @@ unset HISTFILE
 USERLIST='/root /home/*'
 USERFILELIST='.bash_history .zsh_history .zcompdump-*'
 USERDIRLIST=.ansible
-FILELIST='/var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp'
+FILELIST='/var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp var/lib/dhcp/* /tmp/*'
 updatedb 2>/dev/null
+apt-get -y autoremove --purge
 apt-get clean
-apt-get autoremove
+apt-get autoclean
 for user in $USERLIST; do
     for files in $USERFILELIST; do rm -f $user/$files; done
     for dirs in $USERDIRLIST; do rm -rf $user/$dirs; done
 done
-for files in $FILELIST; do rm -f $files; done
+for files in $FILELIST; do rm -rf $files; done
 logrotate --force /etc/logrotate.conf
 find /var/log/ -name '*[0-5]*' -exec rm {} \; 2>/dev/null
 dd if=/dev/zero of=/EMPTY bs=1M

@@ -37,6 +37,7 @@
   register: locales
   tags:
    - compact
+  ignore_errors: yes
 
 - name: Remove localized manuals
   file: path=/usr/share/man/{{ item }} state=absent

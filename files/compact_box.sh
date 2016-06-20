@@ -1,6 +1,6 @@
 # compact_box - Compacts files on the box
 #
-#    (c) 2015 Peter Mosmans [Go Forward]
+#    (c) 2015-2016 Peter Mosmans [Go Forward]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 unset HISTFILE
 USERLIST='/root /home/*'
 USERFILELIST='.bash_history .zsh_history .zcompdump-*'
-USERDIRLIST=.ansible
+USERDIRLIST='.ansible .pip'
 FILELIST='/var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp var/lib/dhcp/* /tmp/*'
 updatedb 2>/dev/null
 apt-get -y autoremove --purge

@@ -6,6 +6,7 @@ unnecessary_packages:
   - bluez
   - build-essential
   - bzip2
+  - console-setup
   - cpp-4.9
   - crda
   - cups
@@ -17,9 +18,12 @@ unnecessary_packages:
   - libiw30
   - locales
   - make
+  - man-db
   - manpages
   - task-english
   - task-laptop
+  - util-linux-locales
   - wireless-regdb
   - wireless-tools
   - wpasupplicant
+  - xkb-data

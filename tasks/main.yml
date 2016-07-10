@@ -9,9 +9,7 @@
   with_items: "{{ unnecessary_packages|default([]) }}"
 
 - name: Autoremove unused packages
-  command: apt-get -y autoremove
-  register: apt_get
-  changed_when: apt_get.stdout != "Reading package lists...\nBuilding dependency tree...\nReading state information...\n0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded."
+  apt: update_cache=yes autoremove=yes force=yes
 
 - name: Check which locales are installed
   shell: ls -1 /usr/share/locale/ | grep -v "locale.alias\|translit_"
@@ -19,7 +17,7 @@
 
 - name: Remove unneeded locales
   file: path=/usr/share/locale/{{ item }} state=absent
-  with_items: locales.stdout_lines
+  with_items: "{{ locales.stdout_lines }}"
   when: item not in "{{ keep_locales|default(['en_US']) }}"
 
 - name: Check which i18n locales are installed
@@ -29,7 +27,7 @@
 
 - name: Remove unneeded i18n locales
   file: path=/usr/share/i18n/locales/{{ item }} state=absent
-  with_items: locales.stdout_lines
+  with_items: "{{ locales.stdout_lines }}"
   when: item not in "{{ keep_locales|default(['en_US']) }}"
 
 - name: Check which localized manuals are installed
@@ -41,7 +39,7 @@
 
 - name: Remove localized manuals
   file: path=/usr/share/man/{{ item }} state=absent
-  with_items: locales.stdout_lines
+  with_items: "{{ locales.stdout_lines }}"
   when: item not in "{{ keep_locales }}"
   tags:
     - compact
@@ -53,5 +51,3 @@
     owner=root
     group=root
     mode=0744
-
-

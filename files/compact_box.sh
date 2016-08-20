@@ -30,6 +30,7 @@ for user in $USERLIST; do
     for dirs in $USERDIRLIST; do rm -rf $user/$dirs; done
 done
 for files in $FILELIST; do rm -rf $files; done
+faillog -r 2>/dev/null
 logrotate --force /etc/logrotate.conf
 find /var/log/ -name '*[0-5]*' -exec rm {} \; 2>/dev/null
 dd if=/dev/zero of=/EMPTY bs=1M

@@ -20,7 +20,7 @@ unset HISTFILE
 USERLIST='/root /home/*'
 USERFILELIST='.bash_history .zsh_history .zcompdump-*'
 USERDIRLIST='.ansible .pip'
-FILELIST='/var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp var/lib/dhcp/* /tmp/*'
+FILELIST='/var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp var/lib/dhcp/* /tmp/* /var/lib/apt/lists/*'
 updatedb 2>/dev/null
 apt-get -y autoremove --purge
 apt-get clean

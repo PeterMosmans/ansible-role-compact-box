@@ -35,4 +35,4 @@ logrotate --force /etc/logrotate.conf
 find /var/log/ -name '*[0-5]*' -exec rm {} \; 2>/dev/null
 dd if=/dev/zero of=/EMPTY bs=1M
 rm -f /EMPTY
-history -c; shutdown -h now
+shutdown -h now

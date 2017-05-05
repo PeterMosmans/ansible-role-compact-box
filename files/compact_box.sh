@@ -1,6 +1,6 @@
 # compact_box - Compacts files on the box
 #
-#    (c) 2015-2016 Peter Mosmans [Go Forward]
+#    (c) 2015-2017 Peter Mosmans [Go Forward]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
@@ -33,6 +33,6 @@ for files in $FILELIST; do rm -rf $files; done
 faillog -r 2>/dev/null
 logrotate --force /etc/logrotate.conf
 find /var/log/ -name '*[0-5]*' -exec rm {} \; 2>/dev/null
-dd if=/dev/zero of=/EMPTY bs=1M
+dd if=/dev/zero of=/EMPTY bs=1M 2>/dev/null
 rm -f /EMPTY
-shutdown -h now
+history -c 2>/dev/null; shutdown -h now

@@ -20,14 +20,20 @@ Role Variables
 Available variables are listed below, along with default values.
 
 
-**keep_localesd**: A list with locales to keep. The defaults can be found in ```defaults/main.yml```.
+**keep_locales**: A list with locales to keep. The defaults can be found in ```defaults/main.yml```.
+Example:
 ```
 keep_locales:
+  - en_GB
   - en_US
+  - i18n
+  - iso14651_t1
+  - iso14651_t1_common
 ```
 
 
 **unnecessary_packages**: A list with packages which will be removed. The defaults can be found in ```defaults/main.yml```.
+Example:
 ```
 unnecessary_packages:
   - build-essential

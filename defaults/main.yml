@@ -1,7 +1,11 @@
 ---
 # defaults file for compact-box
 keep_locales:
+  - en_GB
   - en_US
+  - i18n
+  - iso14651_t1
+  - iso14651_t1_common
 unnecessary_packages:
   - bluez
   - build-essential
@@ -18,7 +22,6 @@ unnecessary_packages:
   - iw
   - laptop-detect
   - libiw30
-  - locales
   - make
   - man-db
   - manpages

@@ -18,6 +18,7 @@ unnecessary_packages:
   - dkms
   - dpkg-dev
   - gcc
+  - installation-report
   - iso-codes
   - iw
   - laptop-detect

@@ -12,23 +12,26 @@
   apt: update_cache=yes autoremove=yes force=yes
 
 - name: Check which locales are installed
-  shell: ls -1 /usr/share/locale/ | grep -v "locale.alias\|translit_"
+  shell: ls -1 /usr/share/locale/ | grep -v "locale.alias"
   register: locales
+  ignore_errors: yes
+  changed_when: false
 
 - name: Remove unneeded locales
   file: path=/usr/share/locale/{{ item }} state=absent
   with_items: "{{ locales.stdout_lines }}"
-  when: item not in "{{ keep_locales|default(['en_US']) }}"
+  when: item not in keep_locales|default(['en_GB','en_US','i18n','iso14651_t1','iso14651_t1_common'])
 
 - name: Check which i18n locales are installed
   shell: ls -1 /usr/share/i18n/locales/ | grep -v "locale.alias\|translit_"
   register: locales
   ignore_errors: yes
+  changed_when: false
 
 - name: Remove unneeded i18n locales
   file: path=/usr/share/i18n/locales/{{ item }} state=absent
   with_items: "{{ locales.stdout_lines }}"
-  when: item not in "{{ keep_locales|default(['en_US']) }}"
+  when: item not in keep_locales|default(['en_GB','en_US','i18n','iso14651_t1','iso14651_t1_common'])
 
 - name: Check which localized manuals are installed
   shell: ls -1 /usr/share/man/ | grep -v man
@@ -40,7 +43,7 @@
 - name: Remove localized manuals
   file: path=/usr/share/man/{{ item }} state=absent
   with_items: "{{ locales.stdout_lines }}"
-  when: item not in "{{ keep_locales }}"
+  when: item not in keep_locales
   tags:
     - compact
 

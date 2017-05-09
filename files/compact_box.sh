@@ -18,7 +18,7 @@
 # usage: history -c; sudo compact_box.sh
 unset HISTFILE
 USERLIST='/root /home/*'
-USERFILELIST='.bash_history .zsh_history .zcompdump-*'
+USERFILELIST='.bash_history .lesshst .zsh_history .zcompdump-*'
 USERDIRLIST='.ansible .aptitude .pip'
 FILELIST='/var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp var/lib/dhcp/* /tmp/* /var/lib/apt/lists/*'
 updatedb 2>/dev/null

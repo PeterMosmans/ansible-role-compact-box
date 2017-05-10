@@ -31,7 +31,9 @@ unnecessary_packages:
   - task-english
   - task-laptop
   - util-linux-locales
+  - wamerican
   - wireless-regdb
   - wireless-tools
   - wpasupplicant
   - xkb-data
+  - xz-utils

@@ -7,23 +7,22 @@ keep_locales:
   - iso14651_t1
   - iso14651_t1_common
 unnecessary_packages:
+  - acpid
   - bluez
-  - build-essential
   - bzip2
   - console-setup
-  - cpp
   - crda
   - cups
+  - dictionaries-common
+  - discover
   - discover-data
   - dkms
   - dpkg-dev
-  - gcc
   - installation-report
   - iso-codes
   - iw
+  - krb5-locales
   - laptop-detect
-  - libiw30
-  - make
   - man-db
   - manpages
   - nano

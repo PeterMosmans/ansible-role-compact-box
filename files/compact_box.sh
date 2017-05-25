@@ -16,6 +16,9 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # usage: history -c; sudo compact_box.sh
+
+VERSION=0.2
+
 unset HISTFILE
 USERLIST='/root /home/*'
 USERFILELIST='.bash_history .lesshst .zsh_history .zcompdump-*'

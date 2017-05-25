@@ -21,14 +21,15 @@ unnecessary_packages:
   - installation-report
   - iso-codes
   - iw
+  - keyboard-configuration
   - krb5-locales
   - laptop-detect
   - man-db
   - manpages
   - nano
+  - pciutils
   - shared-mime-info
-  - task-english
-  - task-laptop
+  - tasksel
   - util-linux-locales
   - wamerican
   - wireless-regdb

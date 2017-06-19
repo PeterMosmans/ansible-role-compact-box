@@ -84,6 +84,7 @@ galaxy_info:
         - jessie
         - lenny
         - squeeze
+        - stretch
         - wheezy
   #
   # Below are all categories currently available. Just as with

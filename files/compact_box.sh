@@ -17,11 +17,11 @@
 
 # usage: history -c; sudo compact_box.sh
 
-VERSION=0.2
+VERSION=0.3
 
 unset HISTFILE
 USERLIST='/root /home/*'
-USERFILELIST='.bash_history .lesshst .zsh_history .zcompdump-*'
+USERFILELIST='.bash_history .lesshst .mysql_history .zsh_history .zcompdump-*'
 USERDIRLIST='.ansible .aptitude .pip'
 FILELIST='/tmp/* /var/cache/apt/archives/*.deb /var/cache/apt/archives/partial/*.deb /var/cache/apt/*.bin /var/log/wtmp /var/lib/dhcp/* /var/lib/apt/lists/* /var/cache/man'
 updatedb 2>/dev/null
